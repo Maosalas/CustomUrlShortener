@@ -32,13 +32,13 @@ def acortar():
     urlShort = generarRandomUrlId()
     cursor.execute("""INSERT INTO urls (urlOriginal,urlCorto) values (%s,%s)""", (urlOriginal, urlShort,))
     connection.mydb.commit()
-    print("Pagina acortada a:" + " https://www.tikosolutions.com/urls?url=" + urlShort)
+    print("Pagina acortada a:" + " servidor/urls?url=" + urlShort)
 
 def fetchUrls():
     cursor.execute("SELECT * FROM urls")
     result = cursor.fetchall()
     for x in result:
-        print(" https://www.tikosolutions.com/urls?url=" + x[2])
+        print(" servidor/urls?url=" + x[2])
     time.sleep(3)
     print(chr(27) + '[2j')
     main()
